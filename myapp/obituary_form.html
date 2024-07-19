@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="List of obituaries on our platform.">
+    <meta name="keywords" content="obituary, death, memorial, {{ obituary.name }}">
+    <meta property="og:title" content="Obituaries | Your Site Name"/>
+    <meta property="og:description" content="Browse obituaries submitted to our platform."/>
+    <meta property="og:image" content="URL_to_image"/>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obituary Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="obituaryForm" method="POST" action="/submit_obituary">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error-message"></div>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="date_of_birth" required>
+        <div id="dobError" class="error-message"></div>
+
+        <label for="dod">Date of Death:</label>
+        <input type="date" id="dod" name="date_of_death" required>
+        <div id="dodError" class="error-message"></div>
+
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea>
+        <div id="contentError" class="error-message"></div>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+        <div id="authorError" class="error-message"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="form-validation.js"></script>
+</body>
+</html>
